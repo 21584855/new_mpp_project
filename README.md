@@ -90,6 +90,7 @@ Windows：
 ## 测试
 
 ```bash
+pip install -r deploy/requirements-dev.txt
 python -m pytest -q
 ```
 
