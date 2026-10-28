@@ -20,9 +20,9 @@ class ConfigError(Exception):
 DEFAULTS: dict[str, Any] = {
     "kb_db": "data/kb.sqlite",
     "corpus_db": "data/corpus.sqlite",
-    "corpus_dir": r"D:\MPP_Project\MPP",
-    "legacy_dir": r"D:\MPP_Project",
-    "migration_anchors": ".scratch/mpp-kb/legacy/migration_anchors.json",
+    "corpus_dir": "data/pdfs",
+    "legacy_dir": "data/legacy",
+    "migration_anchors": "data/migration_anchors.json",
     "ttl_days": 90,
     "batch_cap": 200,
     "sample_rate": 0.1,
