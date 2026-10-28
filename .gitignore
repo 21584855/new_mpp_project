@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Local data / databases
+data/
+deploy/data/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db
+
+# Internal governance / reports / tickets
+.scratch/
+docs/
+*.docx
+*.xlsx
+*.csv
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+deploy/.env
+
+# External frontend / runtime
+deploy/MPP_Project/
+deploy/backups/
+deploy/*.log
+.dsh-meow/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

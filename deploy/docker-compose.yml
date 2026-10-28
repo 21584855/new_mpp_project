@@ -1,0 +1,24 @@
+name: mppkb-ui
+
+services:
+  mppkb-ui:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: mppkb-ui:0.1
+    env_file:
+      - .env
+    environment:
+      # Container-internal paths override host paths from .env
+      MPPKB_KB_DB: /data/kb.sqlite
+      MPPKB_CORPUS_DB: /data/corpus.sqlite
+      MPPKB_CORPUS_DIR: /data/pdfs
+      MPPKB_CHROMA_DIR: /data/chroma
+      MPPKB_ONTOLOGY: /app/ontology.yaml
+    volumes:
+      - ./data:/data
+      - ./MPP_Project:/app/MPP_Project:ro
+    ports:
+      - "127.0.0.1:8791:8791"
+    restart: unless-stopped
+    # The image healthcheck calls /api/health; no extra compose healthcheck needed.

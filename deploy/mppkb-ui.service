@@ -1,0 +1,30 @@
+[Unit]
+Description=mppkb MPP_Project UI bridge
+Documentation=file:///opt/mppkb/docs/MPP_Project_内核嵌入方案.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mppkb
+Group=mppkb
+WorkingDirectory=/opt/mppkb
+EnvironmentFile=/etc/mppkb/mppkb.env
+ExecStart=/opt/mppkb/.venv/bin/python -m mppkb.ui_bridge --repo /srv/MPP_Project --host 127.0.0.1 --port 8791
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+KillSignal=SIGTERM
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/mppkb/data /srv/mppkb/backups
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

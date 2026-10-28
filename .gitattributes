@@ -1,0 +1,3 @@
+# Committed fixture PDFs are binary inputs: never apply EOL conversion, or the
+# fixture bytes (and the hashes asserted by the tests) would drift per checkout.
+tests/fixtures/*.pdf binary

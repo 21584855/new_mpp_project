@@ -1,0 +1,704 @@
+version: 3
+terms:
+  # ---- drugs / interventions ----
+  - id: DRUG:AZITHROMYCIN
+    kind: drug
+    label: 阿奇霉素
+    aliases: [阿奇, AZM, azithromycin, 阿奇霉素干混悬剂]
+  - id: DRUG:ERYTHROMYCIN
+    kind: drug
+    label: 红霉素
+    aliases: [erythromycin]
+  - id: DRUG:CLARITHROMYCIN
+    kind: drug
+    label: 克拉霉素
+    aliases: [clarithromycin]
+  - id: DRUG:ROXITHROMYCIN
+    kind: drug
+    label: 罗红霉素
+    aliases: [roxithromycin]
+  - id: DRUG:DOXYCYCLINE
+    kind: drug
+    label: 多西环素
+    aliases: [强力霉素, doxycycline]
+  - id: DRUG:MINOCYCLINE
+    kind: drug
+    label: 米诺环素
+    aliases: [美满霉素, minocycline]
+  - id: DRUG:TETRACYCLINE
+    kind: drug
+    label: 四环素
+    aliases: [tetracycline]
+  - id: DRUG:LEVOFLOXACIN
+    kind: drug
+    label: 左氧氟沙星
+    aliases: [levofloxacin]
+  - id: DRUG:MOXIFLOXACIN
+    kind: drug
+    label: 莫西沙星
+    aliases: [moxifloxacin]
+  - id: DRUG:CIPROFLOXACIN
+    kind: drug
+    label: 环丙沙星
+    aliases: [ciprofloxacin]
+  - id: DRUG:METHYLPREDNISOLONE
+    kind: drug
+    label: 甲泼尼龙
+    aliases: [甲强龙, methylprednisolone]
+  - id: DRUG:PREDNISONE
+    kind: drug
+    label: 泼尼松
+    aliases: [强的松, prednisone]
+  - id: DRUG:PREDNISOLONE
+    kind: drug
+    label: 泼尼松龙
+    aliases: [prednisolone]
+  - id: DRUG:DEXAMETHASONE
+    kind: drug
+    label: 地塞米松
+    aliases: [dexamethasone]
+  - id: DRUG:HYDROCORTISONE
+    kind: drug
+    label: 氢化可的松
+    aliases: [hydrocortisone]
+  - id: DRUG:IVIG
+    kind: drug
+    label: 静脉注射免疫球蛋白
+    aliases: [丙种球蛋白, IVIG, immunoglobulin]
+  - id: DRUG:BRONCHOSCOPY
+    kind: drug
+    label: 支气管镜
+    aliases: [支气管镜检查, bronchoscopy]
+  - id: DRUG:BRONCHOALVEOLAR_LAVAGE
+    kind: drug
+    label: 支气管肺泡灌洗
+    aliases: [肺泡灌洗, BAL]
+  - id: DRUG:ACETAMINOPHEN
+    kind: drug
+    label: 对乙酰氨基酚
+    aliases: [扑热息痛, acetaminophen]
+  - id: DRUG:IBUPROFEN
+    kind: drug
+    label: 布洛芬
+    aliases: [ibuprofen]
+  - id: DRUG:CEFDINIR
+    kind: drug
+    label: 头孢地尼
+    aliases: [cefdinir]
+  - id: DRUG:CEFUROXIME
+    kind: drug
+    label: 头孢呋辛
+    aliases: [cefuroxime]
+  - id: DRUG:AMOXICILLIN
+    kind: drug
+    label: 阿莫西林
+    aliases: [amoxicillin]
+  - id: DRUG:PIPERACILLIN_TAZOBACTAM
+    kind: drug
+    label: 哌拉西林他唑巴坦
+    aliases: [特治星, piperacillin tazobactam]
+  - id: DRUG:MEROPENEM
+    kind: drug
+    label: 美罗培南
+    aliases: [meropenem]
+  - id: DRUG:VANCOMYCIN
+    kind: drug
+    label: 万古霉素
+    aliases: [vancomycin]
+  - id: DRUG:LINEZOLID
+    kind: drug
+    label: 利奈唑胺
+    aliases: [linezolid]
+  - id: DRUG:CLINDAMYCIN
+    kind: drug
+    label: 克林霉素
+    aliases: [clindamycin]
+  - id: DRUG:RIFAMPICIN
+    kind: drug
+    label: 利福平
+    aliases: [rifampicin]
+  - id: DRUG:OXYGEN_THERAPY
+    kind: drug
+    label: 氧疗
+    aliases: [吸氧, oxygen therapy]
+  - id: DRUG:MECHANICAL_VENTILATION
+    kind: drug
+    label: 机械通气
+    aliases: [呼吸机, mechanical ventilation]
+  - id: DRUG:ECMO
+    kind: drug
+    label: 体外膜肺氧合
+    aliases: [ECMO]
+  # ---- attributes ----
+  - id: ATTR:DOSE
+    kind: attribute
+    label: 剂量
+    aliases: [用量, dose, dosage]
+  - id: ATTR:DOSE_PER_KG_PER_DAY
+    kind: attribute
+    label: 剂量（按体重·日）
+    aliases: [按体重日剂量, mg/kg/day]
+  - id: ATTR:DOSE_PER_KG
+    kind: attribute
+    label: 剂量（按体重·单次）
+    aliases: [按体重单次剂量, mg/kg]
+  - id: ATTR:DOSE_FIXED
+    kind: attribute
+    label: 剂量（固定单次）
+    aliases: [固定单次剂量, fixed dose]
+  - id: ATTR:DOSE_FIXED_PER_DAY
+    kind: attribute
+    label: 剂量（固定日剂量）
+    aliases: [固定日剂量, fixed daily dose]
+  - id: ATTR:DOSE_VOLUME
+    kind: attribute
+    label: 剂量（体积）
+    aliases: [体积剂量, volume dose]
+  - id: ATTR:DOSE_VOLUME_PER_KG
+    kind: attribute
+    label: 剂量（体积/体重）
+    aliases: [按体重体积, volume per kg]
+  - id: ATTR:DURATION
+    kind: attribute
+    label: 疗程
+    aliases: [用药时间, duration, 用药疗程]
+  - id: ATTR:FIRST_LINE
+    kind: attribute
+    label: 一线治疗
+    aliases: [首选, 一线, first line, first-line]
+  - id: ATTR:SECOND_LINE
+    kind: attribute
+    label: 二线治疗
+    aliases: [备选, 二线, second line, second-line]
+  - id: ATTR:CONTRAINDICATION
+    kind: attribute
+    label: 禁忌
+    aliases: [禁忌症, contraindication]
+  - id: ATTR:COMBINATION
+    kind: attribute
+    label: 联合用药
+    aliases: [联合治疗, combination therapy]
+  - id: ATTR:RESISTANCE
+    kind: attribute
+    label: 耐药
+    aliases: [耐药性, 大环内酯耐药, resistance]
+  - id: ATTR:ADVERSE_EVENT
+    kind: attribute
+    label: 不良反应
+    aliases: [副作用, adverse event, side effect]
+  - id: ATTR:AE_OVERALL_RATE
+    kind: attribute
+    label: 总体不良反应发生率
+    aliases: [总不良反应发生率, overall adverse event rate]
+  - id: ATTR:AE_RASH_RATE
+    kind: attribute
+    label: 皮疹发生率
+    aliases: [皮疹率, rash rate]
+  - id: ATTR:AE_GI_RATE
+    kind: attribute
+    label: 胃肠道反应发生率
+    aliases: [消化道反应发生率, gastrointestinal adverse event rate]
+  - id: ATTR:AE_LIVER_RATE
+    kind: attribute
+    label: 肝功能异常发生率
+    aliases: [肝损伤发生率, liver adverse event rate]
+  - id: ATTR:AE_LOCAL_RATE
+    kind: attribute
+    label: 局部反应发生率
+    aliases: [注射部位反应发生率, local reaction rate]
+  - id: ATTR:AE_OTHER_RATE
+    kind: attribute
+    label: 其他不良反应发生率
+    aliases: [other adverse event rate]
+  - id: ATTR:AE_OVERALL_COUNT
+    kind: attribute
+    label: 总体不良反应例数
+    aliases: [总不良反应例数, overall adverse event count]
+  - id: ATTR:AE_RASH_COUNT
+    kind: attribute
+    label: 皮疹例数
+    aliases: [rash count]
+  - id: ATTR:AE_GI_COUNT
+    kind: attribute
+    label: 胃肠道反应例数
+    aliases: [gastrointestinal adverse event count]
+  - id: ATTR:AE_LIVER_COUNT
+    kind: attribute
+    label: 肝功能异常例数
+    aliases: [liver adverse event count]
+  - id: ATTR:AE_LOCAL_COUNT
+    kind: attribute
+    label: 局部反应例数
+    aliases: [local reaction count]
+  - id: ATTR:AE_OTHER_COUNT
+    kind: attribute
+    label: 其他不良反应例数
+    aliases: [other adverse event count]
+  - id: ATTR:EVIDENCE_SUMMARY
+    kind: attribute
+    label: 证据摘要
+    aliases: [证据总结, evidence summary]
+  - id: ATTR:REFRACTORY_RISK
+    kind: attribute
+    label: 难治风险
+    aliases: [难治风险因素, refractory risk]
+  - id: ATTR:TREATMENT_PRINCIPLE
+    kind: attribute
+    label: 治疗原则
+    aliases: [治疗策略, treatment principle]
+  - id: ATTR:DIAGNOSTIC_CRITERIA
+    kind: attribute
+    label: 诊断标准
+    aliases: [诊断依据, diagnostic criteria]
+  - id: ATTR:IMAGING
+    kind: attribute
+    label: 影像学表现
+    aliases: [影像, 影像学, imaging]
+  - id: ATTR:FEVER_DURATION
+    kind: attribute
+    label: 发热持续时间
+    aliases: [热程, fever duration]
+  - id: ATTR:HOSPITAL_STAY
+    kind: attribute
+    label: 住院时间
+    aliases: [住院天数, length of stay]
+  - id: ATTR:FOLLOW_UP
+    kind: attribute
+    label: 随访
+    aliases: [随访间隔, follow-up]
+  - id: ATTR:SEVERITY_ASSESSMENT
+    kind: attribute
+    label: 严重度评估
+    aliases: [严重程度评估, severity assessment]
+  - id: ATTR:OXYGEN_SATURATION
+    kind: attribute
+    label: 血氧饱和度
+    aliases: [SpO2, oxygen saturation]
+  - id: ATTR:WBC
+    kind: attribute
+    label: 白细胞计数
+    aliases: [WBC, white blood cell]
+  - id: ATTR:CRP
+    kind: attribute
+    label: C反应蛋白
+    aliases: [CRP, C-reactive protein]
+  - id: ATTR:LDH
+    kind: attribute
+    label: 乳酸脱氢酶
+    aliases: [LDH, lactate dehydrogenase]
+  - id: ATTR:D_DIMER
+    kind: attribute
+    label: D二聚体
+    aliases: [D-dimer, D二聚体定量]
+  - id: ATTR:LUNG_ULTRASOUND
+    kind: attribute
+    label: 肺部超声
+    aliases: [lung ultrasound, 肺超声]
+  - id: ATTR:CHEST_CT
+    kind: attribute
+    label: 胸部CT
+    aliases: [胸CT, chest CT]
+  - id: ATTR:MP_IGM
+    kind: attribute
+    label: 肺炎支原体IgM
+    aliases: [MP-IgM, 支原体IgM]
+  - id: ATTR:MP_PCR
+    kind: attribute
+    label: 肺炎支原体PCR
+    aliases: [MP-DNA, 支原体PCR, PCR]
+  - id: ATTR:RESISTANCE_GENE
+    kind: attribute
+    label: 耐药基因
+    aliases: [23S rRNA, A2063G, resistance gene]
+  - id: ATTR:MIXED_INFECTION
+    kind: attribute
+    label: 混合感染
+    aliases: [合并感染, co-infection]
+  - id: ATTR:GLUCOCORTICOID_USE
+    kind: attribute
+    label: 糖皮质激素使用
+    aliases: [激素使用, glucocorticoid use]
+  - id: ATTR:ANTIBIOTIC_ESCALATION
+    kind: attribute
+    label: 抗生素升级
+    aliases: [升级治疗, antibiotic escalation]
+  # ---- populations ----
+  - id: POP:CHILDREN
+    kind: population
+    label: 儿童
+    aliases: [小儿, children]
+  - id: POP:INFANTS
+    kind: population
+    label: 婴幼儿
+    aliases: [婴儿, infants]
+  - id: POP:UNDER_3
+    kind: population
+    label: 3岁以下
+    aliases: [小于3岁, under 3]
+  - id: POP:UNDER_8
+    kind: population
+    label: 8岁以下
+    aliases: [小于8岁, under 8]
+  - id: POP:SCHOOL_AGE
+    kind: population
+    label: 学龄期
+    aliases: [学龄儿童, school age]
+  - id: POP:ADOLESCENT
+    kind: population
+    label: 青少年
+    aliases: [8-18岁, adolescents]
+  - id: POP:ADULTS
+    kind: population
+    label: 成人
+    aliases: [成年人, adults]
+  - id: POP:PREGNANT
+    kind: population
+    label: 孕妇
+    aliases: [妊娠, pregnant]
+  - id: POP:IMMUNOCOMPROMISED
+    kind: population
+    label: 免疫抑制
+    aliases: [免疫缺陷, immunocompromised]
+  - id: POP:ELDERLY
+    kind: population
+    label: 老年人
+    aliases: [老年, elderly]
+  # ---- severity ----
+  - id: SEV:MILD
+    kind: severity
+    label: 轻症
+    aliases: [轻度, mild]
+  - id: SEV:MODERATE
+    kind: severity
+    label: 中症
+    aliases: [中度, moderate]
+  - id: SEV:SEVERE
+    kind: severity
+    label: 重症
+    aliases: [重度, severe]
+  - id: SEV:REFRACTORY
+    kind: severity
+    label: 难治性
+    aliases: [难治, refractory]
+  - id: SEV:FULMINANT
+    kind: severity
+    label: 暴发性
+    aliases: [暴发, fulminant]
+  - id: SEV:CRITICAL
+    kind: severity
+    label: 危重症
+    aliases: [危重, critical]
+  # ---- clinical entities / criteria ----
+  - id: CRIT:MPP
+    kind: criterion
+    label: 肺炎支原体肺炎
+    aliases: [MPP, mycoplasma pneumoniae pneumonia]
+  - id: CRIT:RMPP
+    kind: criterion
+    label: 难治性肺炎支原体肺炎
+    aliases: [RMPP]
+  - id: CRIT:SMPP
+    kind: criterion
+    label: 重症肺炎支原体肺炎
+    aliases: [SMPP]
+  - id: CRIT:PLEURAL_EFFUSION
+    kind: criterion
+    label: 胸腔积液
+    aliases: [pleural effusion]
+  - id: CRIT:NECROTIZING_PNEUMONIA
+    kind: criterion
+    label: 坏死性肺炎
+    aliases: [necrotizing pneumonia]
+  - id: CRIT:LUNG_ABSCESS
+    kind: criterion
+    label: 肺脓肿
+    aliases: [lung abscess]
+  - id: CRIT:BRONCHIOLITIS_OBLITERANS
+    kind: criterion
+    label: 闭塞性细支气管炎
+    aliases: [BO, bronchiolitis obliterans]
+  - id: CRIT:ASTHMA
+    kind: criterion
+    label: 哮喘
+    aliases: [asthma]
+  - id: CRIT:MPP_DIAGNOSIS
+    kind: criterion
+    label: 肺炎支原体肺炎诊断标准
+    aliases: [MPP diagnosis, 诊断标准]
+  - id: CRIT:MPP_SEVERITY
+    kind: criterion
+    label: 肺炎支原体肺炎严重度分层
+    aliases: [MPP severity, 严重度分层]
+  - id: CRIT:MPP_RISK
+    kind: criterion
+    label: 难治性肺炎支原体肺炎风险
+    aliases: [RMPP risk, 难治风险]
+  - id: CRIT:MPP_TREATMENT
+    kind: criterion
+    label: 肺炎支原体肺炎治疗原则
+    aliases: [MPP treatment, 治疗原则]
+  - id: CRIT:MPP_IMAGING
+    kind: criterion
+    label: 肺炎支原体肺炎影像特征
+    aliases: [MPP imaging, 影像特征]
+  - id: CRIT:MPP_FOLLOW_UP
+    kind: criterion
+    label: 肺炎支原体肺炎随访警示
+    aliases: [MPP follow-up, 随访警示]
+  - id: CRIT:MPP_COMBINATION
+    kind: criterion
+    label: 肺炎支原体肺炎联合治疗
+    aliases: [MPP combination, 联合治疗]
+  - id: CRIT:MPP_STEROID_DOSE
+    kind: criterion
+    label: 肺炎支原体肺炎激素剂量
+    aliases: [MPP steroid dose, 激素剂量]
+  - id: CRIT:MPP_STEROID_SAFETY
+    kind: criterion
+    label: 肺炎支原体肺炎激素安全性
+    aliases: [MPP steroid safety, 激素安全性]
+  - id: CRIT:MPP_COMPLICATION
+    kind: criterion
+    label: 肺炎支原体肺炎并发症
+    aliases: [MPP complication, 并发症]
+  - id: CRIT:CAP_TREATMENT
+    kind: criterion
+    label: 儿童社区获得性肺炎治疗原则
+    aliases: [CAP treatment, 社区获得性肺炎]
+  - id: CRIT:RASH
+    kind: criterion
+    label: 皮疹
+    aliases: [rash]
+  - id: CRIT:ANEMIA
+    kind: criterion
+    label: 贫血
+    aliases: [anemia]
+  # ---- extended drug list (draft; pending clinical confirmation) ----
+  - id: DRUG:CEFTRIAXONE
+    kind: drug
+    label: 头孢曲松
+    aliases: [ceftriaxone]
+  - id: DRUG:CEFOTAXIME
+    kind: drug
+    label: 头孢噻肟
+    aliases: [cefotaxime]
+  - id: DRUG:AZTREONAM
+    kind: drug
+    label: 氨曲南
+    aliases: [aztreonam]
+  - id: DRUG:AMPICILLIN
+    kind: drug
+    label: 氨苄西林
+    aliases: [ampicillin]
+  - id: DRUG:TIGECYCLINE
+    kind: drug
+    label: 替加环素
+    aliases: [tigecycline]
+  - id: DRUG:OMADACYCLINE
+    kind: drug
+    label: 奥马环素
+    aliases: [omadacycline]
+  - id: DRUG:AMBROXOL
+    kind: drug
+    label: 氨溴索
+    aliases: [ambroxol, 祛痰药]
+  - id: DRUG:ANTITUSSIVE
+    kind: drug
+    label: 镇咳药
+    aliases: [antitussive]
+  - id: DRUG:PROBIOTICS
+    kind: drug
+    label: 益生菌
+    aliases: [probiotics]
+  - id: DRUG:TRADITIONAL_CHINESE
+    kind: drug
+    label: 中药
+    aliases: [中医, traditional chinese medicine]
+  # ---- extended attributes ----
+  - id: ATTR:ALLERGY
+    kind: attribute
+    label: 过敏史
+    aliases: [allergy history]
+  - id: ATTR:VACCINATION
+    kind: attribute
+    label: 疫苗接种
+    aliases: [vaccination]
+  - id: ATTR:EPIDEMIOLOGY
+    kind: attribute
+    label: 流行病学
+    aliases: [epidemiology]
+  - id: ATTR:TRANSMISSION
+    kind: attribute
+    label: 传播途径
+    aliases: [transmission]
+  - id: ATTR:INCUBATION
+    kind: attribute
+    label: 潜伏期
+    aliases: [incubation period]
+  - id: ATTR:CLINICAL_MANIFESTATION
+    kind: attribute
+    label: 临床表现
+    aliases: [clinical manifestation]
+  - id: ATTR:LAB_TEST
+    kind: attribute
+    label: 实验室检查
+    aliases: [laboratory test]
+  - id: ATTR:SEQUELAE
+    kind: attribute
+    label: 后遗症
+    aliases: [sequelae]
+  - id: ATTR:PROGNOSIS
+    kind: attribute
+    label: 预后
+    aliases: [prognosis]
+  - id: ATTR:COST
+    kind: attribute
+    label: 费用
+    aliases: [cost]
+  - id: ATTR:ADHERENCE
+    kind: attribute
+    label: 依从性
+    aliases: [adherence]
+  - id: ATTR:DRUG_INTERACTION
+    kind: attribute
+    label: 药物相互作用
+    aliases: [drug interaction]
+  - id: ATTR:CONTACT_ISOLATION
+    kind: attribute
+    label: 隔离
+    aliases: [contact isolation]
+  - id: ATTR:DISCHARGE_CRITERIA
+    kind: attribute
+    label: 出院标准
+    aliases: [discharge criteria]
+  - id: ATTR:REFERRAL
+    kind: attribute
+    label: 转诊
+    aliases: [referral]
+  # ---- extended clinical entities ----
+  - id: CRIT:UPPER_RESPIRATORY
+    kind: criterion
+    label: 上呼吸道感染
+    aliases: [upper respiratory infection]
+  - id: CRIT:BRONCHITIS
+    kind: criterion
+    label: 支气管炎
+    aliases: [bronchitis]
+  - id: CRIT:PNEUMONIA
+    kind: criterion
+    label: 肺炎
+    aliases: [pneumonia]
+  - id: CRIT:RESPIRATORY_FAILURE
+    kind: criterion
+    label: 呼吸衰竭
+    aliases: [respiratory failure]
+  - id: CRIT:SEPSIS
+    kind: criterion
+    label: 脓毒症
+    aliases: [sepsis]
+  - id: CRIT:MYOCARDITIS
+    kind: criterion
+    label: 心肌炎
+    aliases: [myocarditis]
+  - id: CRIT:ENCEPHALITIS
+    kind: criterion
+    label: 脑炎
+    aliases: [encephalitis]
+  - id: CRIT:HEPATIC_INJURY
+    kind: criterion
+    label: 肝功能损害
+    aliases: [hepatic injury]
+  - id: CRIT:SKIN_LESION
+    kind: criterion
+    label: 皮肤损害
+    aliases: [skin lesion]
+  - id: CRIT:THROMBOSIS
+    kind: criterion
+    label: 血栓形成
+    aliases: [thrombosis]
+  # ---- extended populations ----
+  - id: POP:PRESCHOOL
+    kind: population
+    label: 学龄前
+    aliases: [preschool]
+  - id: POP:NEONATE
+    kind: population
+    label: 新生儿
+    aliases: [neonate]
+  - id: POP:POSTPARTUM
+    kind: population
+    label: 产后
+    aliases: [postpartum]
+  - id: POP:OBESITY
+    kind: population
+    label: 肥胖
+    aliases: [obesity]
+  - id: POP:ALLERGY_HISTORY
+    kind: population
+    label: 过敏体质
+    aliases: [allergic constitution]
+  # ---- extended severity ----
+  - id: SEV:HIGH_RISK
+    kind: severity
+    label: 高危
+    aliases: [high risk]
+  - id: SEV:STABLE
+    kind: severity
+    label: 稳定期
+    aliases: [stable]
+
+  # ---- lab attributes (v2, ticket 32 A) ----
+  - id: ATTR:PCT
+    kind: attribute
+    label: 降钙素原
+    aliases: [PCT, procalcitonin]
+  - id: ATTR:BLOOD_GLUCOSE
+    kind: attribute
+    label: 血糖
+    aliases: [glucose, 血糖水平]
+  - id: ATTR:NEUTROPHIL
+    kind: attribute
+    label: 中性粒细胞
+    aliases: [neutrophil, 中性粒细胞计数]
+  - id: ATTR:PLATELET
+    kind: attribute
+    label: 血小板
+    aliases: [platelet, PLT, 血小板计数]
+  - id: ATTR:BLOOD_GAS
+    kind: attribute
+    label: 血气分析
+    aliases: [blood gas, PaO2, PaCO2]
+  - id: ATTR:ESR
+    kind: attribute
+    label: 红细胞沉降率
+    aliases: [ESR, 血沉]
+  - id: ATTR:ALBUMIN
+    kind: attribute
+    label: 白蛋白
+    aliases: [albumin]
+  - id: ATTR:ALT
+    kind: attribute
+    label: 丙氨酸氨基转移酶
+    aliases: [ALT, 谷丙转氨酶]
+  - id: ATTR:AST
+    kind: attribute
+    label: 天冬氨酸氨基转移酶
+    aliases: [AST, 谷草转氨酶]
+  - id: DRUG:GLUCOCORTICOID
+    kind: drug
+    label: 糖皮质激素
+    aliases: [激素, glucocorticoid, corticosteroid]
+
+  # ---- route + drugs (v3, ticket 32 A) ----
+  - id: ATTR:ROUTE
+    kind: attribute
+    label: 用药途径
+    aliases: [给药途径, 用法, route, administration]
+  - id: DRUG:ACETYLKITASAMYCIN
+    kind: drug
+    label: 乙酰吉他霉素
+    aliases: [乙酰吉他霉素, acetylkitasamycin]
+  - id: DRUG:TOSUFLOXACIN
+    kind: drug
+    label: 甲苯磺酸托氟沙星
+    aliases: [托氟沙星, tosufloxacin]

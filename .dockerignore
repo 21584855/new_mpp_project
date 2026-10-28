@@ -1,0 +1,13 @@
+.git
+.scratch
+.pytest_cache
+__pycache__
+*.pyc
+data
+tests
+docs
+deploy/data
+deploy/MPP_Project
+deploy/backups
+deploy/.env
+*.docx

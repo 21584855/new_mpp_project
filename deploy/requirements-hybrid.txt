@@ -1,0 +1,3 @@
+# Optional: only needed when MPPKB_RETRIEVAL_MODE=hybrid and Chroma is enabled.
+# Install with: pip install -r deploy/requirements-hybrid.txt
+chromadb==1.5.9
