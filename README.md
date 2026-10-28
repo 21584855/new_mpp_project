@@ -41,13 +41,15 @@ pip install -r deploy/requirements-hybrid.txt
 
 ## 数据目录
 
-默认使用 `deploy/data/`：
+默认使用仓库根目录 `data/`（部署脚本默认使用 `deploy/data/`）：
 
 ```text
-deploy/data/
+data/
   kb.sqlite
   corpus.sqlite
   pdfs/
+  legacy/
+  migration_anchors.json
 ```
 
 也可以通过环境变量指定：
