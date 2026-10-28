@@ -62,6 +62,16 @@ set MPPKB_ONTOLOGY=...\ontology.yaml
 set MPPKB_RETRIEVAL_MODE=lexical
 ```
 
+## 合成演示数据（测试版）
+
+如果只想快速体验流程，不接触任何真实数据：
+
+```bash
+python tools/seed_demo.py
+```
+
+种子脚本只在 `demo/data/` 创建合成数据库，并标注“测试版 · 合成演示数据 · 不可用于临床”。详见 `demo/README.md`。
+
 ## CLI 快速验证
 
 ```bash

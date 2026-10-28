@@ -91,8 +91,7 @@ REASON_LABELS = {
 RELATION_ORDER = ("supports", "updates", "supplements", "confirms", "cautions")
 
 INJECT_HTML = """
-<style>
-#kb-fab{position:fixed;right:18px;bottom:18px;z-index:99999;background:#176b4d;color:#fff;border:0;border-radius:24px;padding:10px 16px;font:13px system-ui;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+<style>#kb-fab{position:fixed;right:18px;bottom:18px;z-index:99999;background:#176b4d;color:#fff;border:0;border-radius:24px;padding:10px 16px;font:13px system-ui;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
 #kb-panel{position:fixed;right:18px;bottom:74px;width:540px;max-height:80vh;overflow:auto;background:#fff;border:1px solid #d7dde4;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:12px;font:12px/1.5 system-ui;display:none;z-index:99999}
 #kb-panel h3{margin:0 0 8px;font-size:14px;color:#176b4d}
 #kb-todos{font-weight:600;color:#315f75;margin-bottom:8px}
@@ -682,6 +681,18 @@ def _value_text(value: dict[str, Any], direction: str | None) -> str:
     if kind == "text":
         return str(value.get("value") or "")
     return json.dumps(value, ensure_ascii=False)
+
+
+DEMO_BANNER = """
+<style>
+#kb-demo-banner{position:fixed;left:50%;top:0;transform:translateX(-50%);z-index:100005;background:#a3443d;color:#fff;font:12px system-ui;padding:3px 16px;border-radius:0 0 6px 6px;box-shadow:0 2px 8px rgba(0,0,0,.25);white-space:nowrap}
+</style>
+<div id="kb-demo-banner">测试版 · 合成演示数据 · 不可用于临床</div>
+"""
+
+
+def _demo_mode() -> bool:
+    return os.environ.get("MPPKB_DEMO_MODE", "0").strip() == "1"
 
 
 class KernelBridge:
@@ -1769,10 +1780,11 @@ class _Handler(BaseHTTPRequestHandler):
             return
         if relative == "index.html":
             text = path.read_text(encoding="utf-8")
+            extra = (DEMO_BANNER if _demo_mode() else "") + INJECT_HTML
             if "</body>" in text:
-                text = text.replace("</body>", INJECT_HTML + "\n</body>")
+                text = text.replace("</body>", extra + "\n</body>")
             else:
-                text += INJECT_HTML
+                text += extra
             self._send_bytes(text.encode("utf-8"), "text/html; charset=utf-8")
             return
         data = path.read_bytes()

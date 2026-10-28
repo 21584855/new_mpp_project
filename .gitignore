@@ -9,6 +9,8 @@ venv/
 # Local data / databases
 data/
 deploy/data/
+demo/data/
+demo/work/
 *.sqlite
 *.sqlite3
 *.sqlite-*
